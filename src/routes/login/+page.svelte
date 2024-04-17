@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { Toast } from 'flowbite-svelte';
+	import { CheckCircleSolid } from 'flowbite-svelte-icons';
 
 	export let form: any;
 	const message = writable('');
@@ -19,3 +21,8 @@
 <svlete:head>
 	<title>Free Ask Internet Login</title>
 </svlete:head>
+<div class="flex min-h-screeen flex-col items-center justify-center">
+	<div class="container mx-auto">
+		<h1 class="text-center text-4xl font-bold">Login</h1>
+	</div>
+</div>

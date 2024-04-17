@@ -21,8 +21,8 @@
 <svlete:head>
 	<title>Free Ask Internet Login</title>
 </svlete:head>
-<div class="flex min-h-screeen flex-col items-center justify-center">
+<div class="bg-black min-h-screeen flex-col items-center justify-center">
 	<div class="container mx-auto">
-		<h1 class="text-center text-4xl font-bold">Login</h1>
+		<h1 class="text-center text-4xl font-bold text-orange-900">Login</h1>
 	</div>
 </div>

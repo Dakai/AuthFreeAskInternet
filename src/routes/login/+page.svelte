@@ -4,8 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { Toast } from 'flowbite-svelte';
-	import { CheckCircleSolid } from 'flowbite-svelte-icons';
+	import { GradientButton, Input } from 'flowbite-svelte';
+	import { Helper } from 'flowbite-svelte';
 
 	export let form: any;
 	const message = writable('');
@@ -14,15 +14,40 @@
 		if (!browser) return;
 	});
 
-	$: if (form?.error) {
+	$: {
+		if (form?.error) {
+			message.set(form.error);
+		}
+		if (form?.success) {
+			goto('/');
+		}
 	}
 </script>
 
 <svlete:head>
 	<title>Free Ask Internet Login</title>
 </svlete:head>
-<div class="bg-black min-h-screeen flex-col items-center justify-center">
-	<div class="container mx-auto">
-		<h1 class="text-center text-4xl font-bold text-orange-900">Login</h1>
+<div class="min-h-screen flex items-center justify-center bg-blue-400">
+	<div class="bg-white p-6 rounded shadow">
+		<!-- Your content here -->
+		<h1 class="text-center text-3xl font-medium mb-6">Login</h1>
+		<form method="POST" action="?/login" use:enhance>
+			<div class="space-y-6 flex flex-col">
+				<Input
+					type="text"
+					name="username"
+					placeholder="Username"
+					class="px-4 py-2 border rounded-md"
+				/>
+				<Input
+					type="password"
+					name="password"
+					placeholder="Password"
+					class="px-4 py-2 border rounded-md"
+				/>
+				<GradientButton type="submit" name="submit" class="w-full">Login</GradientButton>
+				<Helper color="red" message={form?.error} />
+			</div>
+		</form>
 	</div>
 </div>

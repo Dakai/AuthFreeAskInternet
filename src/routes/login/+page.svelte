@@ -18,9 +18,6 @@
 		if (form?.error) {
 			message.set(form.error);
 		}
-		if (form?.success) {
-			goto('/');
-		}
 	}
 </script>
 
@@ -30,19 +27,14 @@
 <div class="min-h-screen flex items-center justify-center bg-blue-400">
 	<div class="bg-white p-6 rounded shadow">
 		<!-- Your content here -->
-		<h1 class="text-center text-3xl font-medium mb-6">Login</h1>
+		<h1 class="text-center text-3xl font-medium mb-4">Free Ask Internet</h1>
+		<h2 class="text-center text-2xl font-medium mb-4">Auth</h2>
 		<form method="POST" action="?/login" use:enhance>
 			<div class="space-y-6 flex flex-col">
 				<Input
 					type="text"
-					name="username"
-					placeholder="Username"
-					class="px-4 py-2 border rounded-md"
-				/>
-				<Input
-					type="password"
-					name="password"
-					placeholder="Password"
+					name="authcode"
+					placeholder="Authcode"
 					class="px-4 py-2 border rounded-md"
 				/>
 				<GradientButton type="submit" name="submit" class="w-full">Login</GradientButton>
